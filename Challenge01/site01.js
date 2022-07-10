@@ -29,16 +29,15 @@ function findHero() {
 }
 
 //takes an array of strings and returns the longest one. 
-function findLongestString(namesArry) {
+function findLongestString(namesArray) {
     //initiate string
     lName = "";
     //loop over names
-    for (let i = 0; i < namesArry.length; i++) {
+    for (let i = 0; i < namesArray.length; i++) {
         //if statement to get longest name
         if (namesArray[i].length > lName.length) {
-            lName = namesArry[i];
+            lName = namesArray[i];
         }
     }
     return lName;
-
 }
