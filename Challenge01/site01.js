@@ -34,10 +34,11 @@ function findLongestString(namesArry) {
     lName = "";
     //loop over names
     for (let i = 0; i < namesArry.length; i++) {
-        lName = namesArry[i];
-        
+        //if statement to get longest name
+        if (namesArray[i].length > lName.length) {
+            lName = namesArry[i];
+        }
     }
-
     return lName;
 
 }
