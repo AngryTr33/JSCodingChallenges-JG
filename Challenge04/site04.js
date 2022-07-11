@@ -5,7 +5,7 @@ let cityData = [{
         population: 67363,
         median_age: 24.2,
         avg_household_size: 2.51
-        
+
     },
     {
         city: "Cary",
@@ -125,13 +125,13 @@ let cityData = [{
 //driver function used for display and passing values.
 function citySort() {
 
-    
+
     sortByPopulation(cityData, "desc");
-    
+
     //extra credit functions
-    //sortyByName(cityData);
-    //sortByAge(cityData, "asc");
-    
+    //sortyByName(cityData, "asc");
+    //sortByAge(cityData, "desc");
+
     //used for display purposes. not need to change
     tbody = document.getElementById("results");
     let trow = "";
@@ -145,15 +145,47 @@ function citySort() {
 
 //takes an array of objects and sorts by population. 
 function sortByPopulation(cityData, sortDir) {
-    
+    //built in comparison function
+    cityData.sort((a, b) => {
+        if (sortDir == "asc") {
+            return (a.population - b.population);
+        } else {
+            return (b.population - a.population);
+        }
+    });
 }
 
 //takes an array of objects and sorts by median age. 
-function sortByAge(cityData, sortDir){
-  
+function sortByAge(cityData, sortDir) {
+    //built in comparison function
+    cityData.sort((a, b) => {
+        if (sortDir == "asc") {
+            return (a.median_age - b.median_age);
+        } else {
+            return (b.median_age - a.median_age);
+        }
+    });
 }
 
 //takes an array of objects and sorts by city name. 
-function sortyByName(cityData) {
-    
+function sortyByName(cityData, sortDir) {
+    cityData.sort((a, b) => {
+        //lowercase the comparison
+        let cityA = a.city.toLowerCase();
+        let cityB = b.city.toLowerCase();
+
+        let compare = 0;
+
+        if (cityA > cityB){
+            compare = 1;
+        }else if(cityA < cityB){
+            compare = - 1;
+        }
+
+        if (sortDir == 'asc'){
+            return compare;
+        }else{
+            return compare * -1;
+        }
+    });
 }
