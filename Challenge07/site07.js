@@ -28,6 +28,19 @@ function checkPalindrome() {
 //takes an string to check if it is a palindrome.
 //returns true or false. 
 function isPalindrome(str) {
-
+    //remove empty characters from string
+    cleanStr = str.replace(/[^A-Z0-9]/ig, '');
+    //lower case the string
+    cleanStr = cleanStr.toLowerCase();
+    //create an empty string
+    let revStr = '';
+    //decrementing for loop to reverse a string
+    for (let i = cleanStr.length -1; i >= 0; i--) {
+        revStr += cleanStr[i];
+    }
+    //check for palindrome
+        if (revStr == cleanStr) {
+            return true;
+        }
     return false;
 }
