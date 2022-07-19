@@ -8,7 +8,7 @@ function displayNumbers() {
     let avg = avgNumber(numbers);
     let max = maxNumber(numbers);
     let min = minNumber(numbers);
-    let sumRec = sumNumbersRecursive(numbers,index);
+    //let sumRec = sumNumbersRecursive(numbers,index);
 
     //used for display not need to change unless you are doing only the sum function
     let msg = `Sum = ${sum}<br>Avg = ${avg.toFixed(2)}<br>Max = ${max}<br>Min = ${min}`;
@@ -20,7 +20,13 @@ function displayNumbers() {
 
 //takes an array of numbers and returns the sum of all the numbers
 function sumNumbers(numArry) {
-    return 0;
+    let sum = 0;
+
+    for (let i = 0; i < numArry.length; i++) {
+        sum += numArry[i];      
+    }
+
+    return sum;
 }
 
 //takes an array of numbers and the current index in the array and returns the sum of all the numbers using recursion
@@ -33,15 +39,40 @@ function sumNumbersRecursive(numArry, index) {
 
 //takes an array of numbers and returns the average of all the numbers
 function avgNumber(numArry) {
-    return 0;
+    let sum = 0;
+    let avg = 0;
+
+    for (let i = 0; i < numArry.length; i++) {
+        sum += numArry[i];        
+    }
+
+    avg = sum / numArry.length;
+
+    return avg;
 }
 
 //takes an array of numbers and returns the max number
 function maxNumber(numArry) {
-    return 0;
+    let max = numArry[0];
+
+    for (let i = 1; i < numArry.length; i++) {
+
+        if (numArry[i] > max) {
+            max = numArry[i];            
+        }        
+    }
+    return max;
 }
 
 //takes an array of numbers and returns the min number
 function minNumber(numArry) {
-    return 0;
+    let min = numArry[0];
+
+    for (let i = 1; i < numArry.length; i++) {
+
+        if (numArry[i] < min) {
+            min = numArry[i];           
+        }        
+    }
+    return min;
 }
