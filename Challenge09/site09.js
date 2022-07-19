@@ -81,5 +81,10 @@ function findHero() {
 
 //takes an array of strings and returns the longest one. 
 function heroSearch(searchterm, marvelHeroes) {
-   return {};
+
+    let heroObj = marvelHeroes.find( h => {
+        return h.Alias.toLowerCase() === searchterm.toLowerCase();
+    });
+
+   return heroObj;
 }
