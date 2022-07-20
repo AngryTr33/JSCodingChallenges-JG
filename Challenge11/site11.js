@@ -4,7 +4,7 @@ const numbers = [1,3,5,7,9];
 function displayNumbers() {
     
     //implement the four functions to return sum, avg, max and min
-    let sum = sumNumbers(numbers);
+    let sum = sumNumbers(numbers, numbers.length);
     
     //used for display not need to change unless you are doing only the sum function
     let msg = `Sum = ${sum}`;
@@ -16,7 +16,12 @@ function displayNumbers() {
 
 //takes an array of numbers and the current index in the array and returns the sum of all the numbers using recursion
 //Recursion is the technique of the function calling itself. 
-function sumNumbers(numArry) {
-    return 0;
+function sumNumbers(numArry, index) {
+    //we need our condition that stops the recursion
+    if (index <= 0){
+        return 0;
+    }
+    //call the recursive function and add the current value to the return
+    return sumNumbers(numArry, index - 1) + numArry[index - 1];
 }
 

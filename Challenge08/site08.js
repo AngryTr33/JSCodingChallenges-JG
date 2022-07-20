@@ -8,10 +8,10 @@ function displayNumbers() {
     let avg = avgNumber(numbers);
     let max = maxNumber(numbers);
     let min = minNumber(numbers);
-    //let sumRec = sumNumbersRecursive(numbers,index);
+    let sumRec = sumNumbersRecursive(numbers, numbers.length);
 
     //used for display not need to change unless you are doing only the sum function
-    let msg = `Sum = ${sum}<br>Avg = ${avg.toFixed(2)}<br>Max = ${max}<br>Min = ${min}`;
+    let msg = `Sum = ${sum}<br>Avg = ${avg.toFixed(2)}<br>Max = ${max}<br>Min = ${min}<br>Recursive = ${sumRec}`;
     
     //display the message    
     document.getElementById("results").innerHTML = msg;
@@ -33,7 +33,12 @@ function sumNumbers(numArry) {
 //Recursion is the technique of the function calling itself. 
 //NOTE * SEE CHALLENGE 11. 
 function sumNumbersRecursive(numArry, index) {
-    return 0;
+    //we need our condition that stops the recursion
+    if (index <= 0){
+        return 0;
+    }
+    //call the recursive function and add the current value to the return
+    return sumNumbersRecursive(numArry, index - 1) + numArry[index - 1];
 }
 
 
